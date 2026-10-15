@@ -1,0 +1,16 @@
+
+import { test, expect } from '@playwright/test';
+
+test('Handle JavaScript alert', async ({ page }) => {
+    await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
+
+    page.once('dialog', async dialog => {
+        expect(dialog.type()).toBe('alert');
+        await dialog.accept();
+    });
+
+    await page.getByRole('button', { name: 'Click for JS Alert' }).click();
+
+    await expect(page.locator('#result'))
+        .toHaveText('You successfully clicked an alert');
+});

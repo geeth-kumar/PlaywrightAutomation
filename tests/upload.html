@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Practice</title>
+</head>
+<body>
+    <h1>File Upload Practice</h1>
+    <input type="file" id="file-upload">
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('file-upload')
+            .addEventListener('change', function () {
+                document.getElementById('result').textContent =
+                    this.files[0]?.name || '';
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QA Practice Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+
+    <form id="loginForm">
+        <label for="username">Username</label>
+        <input id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p id="message" role="status"></p>
+
+    <script>
+        document.querySelector('#loginForm').addEventListener('submit', event => {
+            event.preventDefault();
+
+            const username = document.querySelector('#username').value;
+            const password = document.querySelector('#password').value;
+
+            const message = document.querySelector('#message');
+
+            if (username === 'geeth' && password === 'QA12345') {
+                message.textContent = 'Login successful';
+            } else {
+                message.textContent = 'Invalid username or password';
+            }
+        });
+    </script>
+</body>
+</html>
